@@ -1,29 +1,30 @@
+<?php
 class Janken {
     public $user;
     public $com;
     public $result;
 
     public function judge() {
-        switch ($user) {
+        switch ($this->user) {
         case "gu":
-            if ($com == "gu")    { $result = "引き分けです"}
-            if ($com == "choki") { $result = "あなたの勝ち"}
-            if ($com == "pa")    { $result = "わたしの勝ち"}
+            if ($this->com == "gu")    { $this->result = "引き分けです"; }
+            if ($this->com == "choki") { $this->result = "あなたの勝ち"; }
+            if ($this->com == "pa")    { $this->result = "わたしの勝ち"; }
             break;
         case "choki":
-            if ($com == "gu")    { $result = "わたしの勝ち"}
-            if ($com == "choki") { $result = "引き分けです"}
-            if ($com == "pa")    { $result = "あなたの勝ち"}
+            if ($this->com == "gu")    { $this->result = "わたしの勝ち"; }
+            if ($this->com == "choki") { $this->result = "引き分けです"; }
+            if ($this->com == "pa")    { $this->result = "あなたの勝ち"; }
             break;
         case "pa":
-            if ($com == "gu")    { $result = "あなたの勝ち"}
-            if ($com == "choki") { $result = "わたしの勝ち"}
-            if ($com == "pa")    { $result = "引き分けです"}
+            if ($this->com == "gu")    { $this->result = "あなたの勝ち"; }
+            if ($this->com == "choki") { $this->result = "わたしの勝ち"; }
+            if ($this->com == "pa")    { $this->result = "引き分けです"; }
             break;
         default:
-            $result = "あめま";
+            $this->result = "あめま";
         }
     }
 }
 
-// 修正時刻: Fri Jun 25 07:58:06 2021
+// 修正時刻: Sat Jun 26 14:39:07 2021
