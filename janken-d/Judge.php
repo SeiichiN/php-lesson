@@ -2,7 +2,7 @@
 class Judge {
   public static function exec($user, $com) {
     if (($user->getHand() + 1) % 3 === $com->getHand()) {
-      $msg = "あなたの勝ち";
+      $msg = $user->getName() . "の勝ち";
       $user->setResult("win");
       $com->setResult("lose");
     } else if ($user->getHand() === $com->getHand()) {
@@ -10,7 +10,7 @@ class Judge {
       $user->setResult("draw");
       $com->setResult("draw");
     } else {
-      $msg = "わたしの勝ち";
+      $msg = $com->getName() . "の勝ち";
       $user->setResult("lose");
       $com->setResult("win");
     }
@@ -18,4 +18,4 @@ class Judge {
   }
 }
 
-// 修正時刻: Sun Dec  5 17:19:14 2021
+// 修正時刻: Thu Jan  6 19:29:43 2022
