@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>設定</h1>
-    <form action="game.php" method="post">
+    <form action="index.php" method="post">
       あなた(user)の名前:<input type="text" name="userName"/><br/>
       わたし(com)の名前:<input type="text" name="comName"/><br/>
       <input type="submit" value="OK"/>
@@ -14,4 +14,4 @@
   </body>
 </html>
 
-<!-- 修正時刻: Fri Jan  7 09:36:37 2022 -->
+<!-- 修正時刻: Fri Jan  7 16:23:48 2022 -->
