@@ -1,6 +1,14 @@
 <?php
-$userName = 'あなた';
-$comName = 'わたし';
+if (isset($_POST['userName'])) {
+  $userName = $_POST['userName'];
+} else {
+  $userName = 'あなた';
+}
+if (isset($_POST['comName'])) {
+  $comName = $_POST['comName'];
+} else {
+  $comName = 'わたし';
+}
 ?>
 <!doctype html>
 <html lang="ja">
@@ -22,7 +30,8 @@ $comName = 'わたし';
       <label for="pa">パー</label><br/>
       <input type="submit" value="OK"/>
     </form>
+    <p><a href="setting.php">設定</a></p>
   </body>
 </html>
 
-<!-- 修正時刻: Sat Jan  8 16:09:46 2022 -->
+<!-- 修正時刻: Sat Jan  8 16:38:50 2022 -->

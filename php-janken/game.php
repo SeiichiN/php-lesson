@@ -28,7 +28,10 @@ $result = Judge::execute($user, $com);
 echo "game:" . $result . "<br>\n";
 echo $user->getName() . ":" . $user->getHand() . ":" . $user->getResult() . "<br>\n";
 echo $com->getName() . ":" . $com->getHand() . ":" . $com->getResult() . "<br>\n";
+?>
 
+<html><body>
+<a href="/">もどる</a>
+</body></html>
 
-
-// 修正時刻: Fri Jan  7 09:50:39 2022
+<!-- 修正時刻: Fri Jan  7 09:50:39 2022 -->
