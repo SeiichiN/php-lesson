@@ -2,15 +2,18 @@
 require_once('Player.php');
 require_once('Judge.php');
 
-if (isset($_POST['userName'])) {
+if ($_POST['userName'] != "" && isset($_POST['userName'])) {
   $userName = $_POST['userName'];
 }
-if (isset($_POST['comName'])) {
+if ($_POST['comName'] != "" && isset($_POST['comName'])) {
   $comName = $_POST['comName'];
 }
 
-if (isset($_POST['hand'])) {
+if ($_POST['hand'] != "" && isset($_POST['hand'])) {
   $userHand = (int) $_POST['hand'];
+} else if ($_POST['hand'] == "") {
+  header("Location: " . "/");
+  exit;
 }
 $comHand = random_int(0, 2);
 
@@ -39,7 +42,11 @@ $hand = ['グー', 'チョキ', 'パー'];
       <?php echo $com->getName() ?>:<?php echo $hand[$com->getHand()]; ?>
     </p>
     <p><?php echo $msg; ?></p>
-    <a href="/">もどる</a>
+    <form action="index.php" method="post">
+      <input type="hidden" name="userName" value="<?php echo $user->getName(); ?>"/>
+      <input type="hidden" name="comHand" value="<?php echo $com->getName(); ?>"/>
+      <input type="submit" value="もどる"/>
+    </form>
   </body>
 </html>
-<!-- 修正時刻: Sat Jan  8 16:25:09 2022 -->
+<!-- 修正時刻: Sun Jan  9 18:30:00 2022 -->

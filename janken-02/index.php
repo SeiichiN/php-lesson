@@ -1,10 +1,10 @@
 <?php
-if (isset($_POST['userName'])) {
+if ($_POST['userName']) {
   $userName = $_POST['userName'];
 } else {
   $userName = 'あなた';
 }
-if (isset($_POST['comName'])) {
+if ($_POST['comName']) {
   $comName = $_POST['comName'];
 } else {
   $comName = 'わたし';
@@ -20,8 +20,8 @@ if (isset($_POST['comName'])) {
     <h1>じゃんけんゲーム</h1>
     <p><?php echo $userName ?>の手を選んでください</p>
     <form action="game.php" method="post">
-      <input type="hidden" name="userName" value="<?= $userName ?>"/>
-      <input type="hidden" name="comName" value="<?= $comName ?>"/>
+      <input type="hidden" name="userName" value="<?php echo $userName; ?>"/>
+      <input type="hidden" name="comName" value="<?php echo $comName; ?>"/>
       <input type="radio" name="hand" value="0" id="gu" />
       <label for="gu">グー</label>
       <input type="radio" name="hand" value="1" id="choki" />
@@ -34,4 +34,4 @@ if (isset($_POST['comName'])) {
   </body>
 </html>
 
-<!-- 修正時刻: Sat Jan  8 16:38:50 2022 -->
+<!-- 修正時刻: Sun Jan  9 18:01:44 2022 -->
