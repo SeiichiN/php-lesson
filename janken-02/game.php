@@ -51,6 +51,7 @@ $hand = ['グー', 'チョキ', 'パー'];
       <?php echo h($user->getName()) ?>:<?php echo h($hand[$user->getHand()]); ?><br/>
       <?php echo h($com->getName()) ?>:<?php echo h($hand[$com->getHand()]); ?>
     </p>
+
     <p><?php echo h($msg); ?></p>
     <form action="/" method="post">
       <input type="hidden" name="userName" value="<?php echo $user->getName(); ?>"/>
@@ -59,4 +60,6 @@ $hand = ['グー', 'チョキ', 'パー'];
     </form>
   </body>
 </html>
-<!-- 修正時刻: Mon Jan 10 07:26:27 2022 -->
+
+<!-- 修正時刻: Mon Jan 10 14:45:28 2022 -->
+

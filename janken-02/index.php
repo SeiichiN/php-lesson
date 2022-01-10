@@ -1,4 +1,5 @@
 <?php
+
 require_once('util.php');
 
 // if (isset($_POST['userName'])) {
@@ -15,7 +16,6 @@ $userName = filter_input(INPUT_POST, 'userName');
 $comName = filter_input(INPUT_POST, 'comName');
 if (empty($userName)) { $userName = "あなた"; }
 if (empty($comName)) { $comName = "わたし"; }
-
 ?>
 <!doctype html>
 <html lang="ja">
@@ -27,8 +27,8 @@ if (empty($comName)) { $comName = "わたし"; }
     <h1>じゃんけんゲーム</h1>
     <p><?php echo h($userName) ?>の手を選んでください</p>
     <form action="game.php" method="post">
-      <input type="hidden" name="userName" value="<?= $userName ?>"/>
-      <input type="hidden" name="comName" value="<?= $comName ?>"/>
+      <input type="hidden" name="userName" value="<?php echo $userName; ?>"/>
+      <input type="hidden" name="comName" value="<?php echo $comName; ?>"/>
       <input type="radio" name="hand" value="0" id="gu" />
       <label for="gu">グー</label>
       <input type="radio" name="hand" value="1" id="choki" />
@@ -41,4 +41,6 @@ if (empty($comName)) { $comName = "わたし"; }
   </body>
 </html>
 
-<!-- 修正時刻: Mon Jan 10 07:14:29 2022 -->
+
+<!-- 修正時刻: Mon Jan 10 14:44:09 2022 -->
+
