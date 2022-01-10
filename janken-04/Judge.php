@@ -22,8 +22,10 @@ class Judge {
       $user->setResult("lose");
       $com->setResult("win");
     }
+    $_SESSION['com'] = serialize($com);
+    $_SESSION['user'] = serialize($user);
     return $msg;
   }
 }
 
-// 修正時刻: Mon Jan 10 07:59:25 2022
+// 修正時刻: Mon Jan 10 09:18:48 2022

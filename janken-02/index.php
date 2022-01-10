@@ -1,14 +1,21 @@
 <?php
-if (isset($_POST['userName'])) {
-  $userName = $_POST['userName'];
-} else {
-  $userName = 'あなた';
-}
-if (isset($_POST['comName'])) {
-  $comName = $_POST['comName'];
-} else {
-  $comName = 'わたし';
-}
+require_once('util.php');
+
+// if (isset($_POST['userName'])) {
+//   $userName = $_POST['userName'];
+// } else {
+//   $userName = 'あなた';
+// }
+// if (isset($_POST['comName'])) {
+//   $comName = $_POST['comName'];
+// } else {
+//   $comName = 'わたし';
+// }
+$userName = filter_input(INPUT_POST, 'userName');
+$comName = filter_input(INPUT_POST, 'comName');
+if (empty($userName)) { $userName = "あなた"; }
+if (empty($comName)) { $comName = "わたし"; }
+
 ?>
 <!doctype html>
 <html lang="ja">
@@ -18,7 +25,7 @@ if (isset($_POST['comName'])) {
   </head>
   <body>
     <h1>じゃんけんゲーム</h1>
-    <p><?php echo $userName ?>の手を選んでください</p>
+    <p><?php echo h($userName) ?>の手を選んでください</p>
     <form action="game.php" method="post">
       <input type="hidden" name="userName" value="<?= $userName ?>"/>
       <input type="hidden" name="comName" value="<?= $comName ?>"/>
@@ -34,4 +41,4 @@ if (isset($_POST['comName'])) {
   </body>
 </html>
 
-<!-- 修正時刻: Sat Jan  8 16:38:50 2022 -->
+<!-- 修正時刻: Mon Jan 10 07:14:29 2022 -->

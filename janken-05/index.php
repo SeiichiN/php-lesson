@@ -9,14 +9,20 @@ if (isset($_SESSION['user'])) {
 } else {
   $user = new Player("あなた");
 }
-if (isset($_SESSION['com'])) {
-  $com = unserialize($_SESSION['com']);
+if (isset($_SESSION['com1'])) {
+  $com1 = unserialize($_SESSION['com1']);
 } else {
-  $com = new Player("わたし");
+  $com1 = new Player("コム1");
+}
+if (isset($_SESSION['com2'])) {
+  $com2 = unserialize($_SESSION['com2']);
+} else {
+  $com2 = new Player("コム2");
 }
 
 $_SESSION['user'] = serialize($user);
-$_SESSION['com'] = serialize($com);
+$_SESSION['com1'] = serialize($com1);
+$_SESSION['com2'] = serialize($com2);
 ?>
 <!doctype html>
 <html lang="ja">
@@ -40,4 +46,4 @@ $_SESSION['com'] = serialize($com);
   </body>
 </html>
 
-<!-- 修正時刻: Mon Jan 10 07:34:24 2022 -->
+<!-- 修正時刻: Mon Jan 10 14:35:23 2022 -->

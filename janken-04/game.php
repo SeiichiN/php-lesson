@@ -4,6 +4,8 @@ session_start();
 require_once('Player.php');
 require_once('Judge.php');
 require_once('util.php');
+require_once('ResultStrategy.php');
+require_once('StrategyInterface.php');
 
 $user = unserialize($_SESSION['user']);
 $com = unserialize($_SESSION['com']);
@@ -20,7 +22,8 @@ $options = [
 ];
 $userHand = filter_input(INPUT_POST, 'hand', FILTER_VALIDATE_INT, $options);
 
-$comHand = random_int(0, 2);
+$strategy = new ResultStrategy($com);
+$comHand = $strategy->decide($com);
 
 $user->setHand($userHand);
 $com->setHand($comHand);
@@ -46,4 +49,4 @@ $hand = ['グー', 'チョキ', 'パー'];
     <a href="/">もどる</a>
   </body>
 </html>
-<!-- 修正時刻: Mon Jan 10 07:39:26 2022 -->
+<!-- 修正時刻: Mon Jan 10 12:44:19 2022 -->

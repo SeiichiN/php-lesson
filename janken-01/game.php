@@ -2,16 +2,20 @@
 require_once('Player.php');
 require_once('Judge.php');
 
-if (isset($_POST['userName'])) {
-  $userName = $_POST['userName'];
-}
-if (isset($_POST['comName'])) {
-  $comName = $_POST['comName'];
-}
+// if (isset($_POST['userName'])) {
+//   $userName = $_POST['userName'];
+// }
+// if (isset($_POST['comName'])) {
+//   $comName = $_POST['comName'];
+// }
+$userName = filter_input(INPUT_POST, 'userName');
+$comName = filter_input(INPUT_POST, 'comName');
 
-if (isset($_POST['hand'])) {
-  $userHand = (int) $_POST['hand'];
-}
+// if (isset($_POST['hand'])) {
+//   $userHand = (int) $_POST['hand'];
+// }
+$options = ['options' => ['default' => 3, 'min_range' => 0, 'max_range' => 2]];
+$userHand = filter_input(INPUT_POST, 'hand', FILTER_VALIDATE_INT, $options);
 $comHand = random_int(0, 2);
 
 echo 'userName:' . $userName . "<br>\n";
@@ -42,4 +46,4 @@ $msg = $judge->execute($user, $com);
     <a href="/">もどる</a>
   </body>
 </html>
-<!-- 修正時刻: Sat Jan  8 14:34:49 2022 -->
+<!-- 修正時刻: Mon Jan 10 06:13:29 2022 -->

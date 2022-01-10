@@ -4,9 +4,13 @@ session_start();
 require_once('Player.php');
 require_once('Judge.php');
 require_once('util.php');
+require_once('ResultStrategy.php');
+require_once('StrategyInterface.php');
+require_once('RandomStrategy.php');
 
 $user = unserialize($_SESSION['user']);
-$com = unserialize($_SESSION['com']);
+$com1 = unserialize($_SESSION['com1']);
+$com2 = unserialize($_SESSION['com2']);
 
 // if (isset($_POST['hand'])) {
 //   $userHand = (int) $_POST['hand'];
@@ -20,11 +24,16 @@ $options = [
 ];
 $userHand = filter_input(INPUT_POST, 'hand', FILTER_VALIDATE_INT, $options);
 
-$comHand = random_int(0, 2);
+$strategy1 = new ResultStrategy($com1);
+$com1Hand = $strategy1->decide($com1);
+$strategy2 = new RandomStrategy($com2);
+$com2Hand = $strategy2->decide($com2);
+
 
 $user->setHand($userHand);
-$com->setHand($comHand);
-$msg = Judge::execute($user, $com);
+$com1->setHand($com1Hand);
+$com2->setHand($com2Hand);
+$msg = Judge::execute($user, $com1, $com2);
 $hand = ['グー', 'チョキ', 'パー'];
 
 ?>
@@ -40,10 +49,11 @@ $hand = ['グー', 'チョキ', 'パー'];
     <?php // echo $userObj->getName(); ?>
     <p>
       <?php echo h($user->getName()) ?>:<?php echo h($hand[$user->getHand()]); ?><br/>
-      <?php echo h($com->getName()) ?>:<?php echo h($hand[$com->getHand()]); ?>
+      <?php echo h($com1->getName()) ?>:<?php echo h($hand[$com1->getHand()]); ?><br/>
+      <?php echo h($com2->getName()) ?>:<?php echo h($hand[$com2->getHand()]); ?>
     </p>
     <p><?php echo h($msg); ?></p>
     <a href="/">もどる</a>
   </body>
 </html>
-<!-- 修正時刻: Mon Jan 10 07:39:26 2022 -->
+<!-- 修正時刻: Mon Jan 10 13:24:15 2022 -->
