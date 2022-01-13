@@ -9,11 +9,11 @@ class RandomStrategy implements StrategyInterface {
     $this->com = $com;
   }
   
-  public function decide() {
+  public function nextHand() {
     // echo 'com:', $com->getResult() , '<br>';
-    $newHand = random_int(0, 2);
-    return $newHand;
+    $nextHand = random_int(0, 2);
+    return $nextHand;
   }
 }
 
-// 修正時刻: Mon Jan 10 12:10:39 2022
+// 修正時刻: Fri Jan 14 08:04:48 2022

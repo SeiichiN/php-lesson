@@ -13,6 +13,7 @@ if (isset($_SESSION['com'])) {
   $com = unserialize($_SESSION['com']);
 } else {
   $com = new Player("わたし");
+  $com->setStrategy(new ResultStrategy($com));
 }
 
 $_SESSION['user'] = serialize($user);
@@ -40,4 +41,4 @@ $_SESSION['com'] = serialize($com);
   </body>
 </html>
 
-<!-- 修正時刻: Mon Jan 10 07:34:24 2022 -->
+<!-- 修正時刻: Fri Jan 14 08:06:13 2022 -->

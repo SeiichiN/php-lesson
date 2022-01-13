@@ -3,9 +3,19 @@ class Player {
   private $name;
   private $hand;
   private $result;
+  private $strategy;
 
   public function __construct($name) {
     $this->name = $name;
+  }
+
+  public function setStrategy($strategy) {
+    $this->strategy = $strategy;
+  }
+
+  public function setNextHand() {
+    $nextHand = $this->strategy->nextHand();
+    $this->setHand($nextHand);
   }
 
   public function getName() { return $this->name; }
@@ -18,4 +28,4 @@ class Player {
 }
 
 
-// 修正時刻: Sat Jan  8 17:11:16 2022
+// 修正時刻: Fri Jan 14 08:09:11 2022

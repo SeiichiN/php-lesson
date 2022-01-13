@@ -9,22 +9,22 @@ class ResultStrategy implements StrategyInterface {
     $this->com = $com;
   }
   
-  public function decide() {
+  public function nextHand() {
     // echo 'com:', $com->getResult() , '<br>';
 
     if ($this->com->getResult() === "lose") {
-      $newHand = $this->com->getHand();
+      $nextHand = $this->com->getHand();
       // echo 'newHand:' , $newHand, '<br>';
     }
     else if ($this->com->getResult() === "draw"){
-      $newHand = ($this->com->getHand() + 1) % 3;
+      $nextHand = ($this->com->getHand() + 1) % 3;
       // echo 'newHand:' , $newHand, '<br>';
     }
     else {
-      $newHand = random_int(0, 2);
+      $nextHand = random_int(0, 2);
     }
-    return $newHand;
+    return $nextHand;
   }
 }
 
-// 修正時刻: Mon Jan 10 11:56:58 2022
+// 修正時刻: Fri Jan 14 08:04:19 2022

@@ -6,6 +6,7 @@ require_once('Judge.php');
 require_once('util.php');
 require_once('ResultStrategy.php');
 require_once('StrategyInterface.php');
+require_once('RandomStrategy.php');
 
 $user = unserialize($_SESSION['user']);
 $com = unserialize($_SESSION['com']);
@@ -22,11 +23,10 @@ $options = [
 ];
 $userHand = filter_input(INPUT_POST, 'hand', FILTER_VALIDATE_INT, $options);
 
-$strategy = new ResultStrategy($com);
-$comHand = $strategy->decide($com);
 
 $user->setHand($userHand);
-$com->setHand($comHand);
+$com->setNextHand();
+
 $msg = Judge::execute($user, $com);
 $hand = ['グー', 'チョキ', 'パー'];
 
@@ -49,4 +49,4 @@ $hand = ['グー', 'チョキ', 'パー'];
     <a href="/">もどる</a>
   </body>
 </html>
-<!-- 修正時刻: Mon Jan 10 12:44:19 2022 -->
+<!-- 修正時刻: Fri Jan 14 08:11:16 2022 -->
