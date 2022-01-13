@@ -1,6 +1,6 @@
 <?php
 class Judge {
-  public function execute($user, $com) {
+  public function execute(Player $user, Player $com) {
     $userHand = $user->getHand();
     $comHand = $com->getHand();
 
