@@ -28,6 +28,9 @@ $user->setHand($userHand);
 $com->setNextHand();
 
 $msg = Judge::execute($user, $com);
+$_SESSION['user'] = serialize($user);
+$_SESSION['com'] = serialize($com);
+
 $hand = ['グー', 'チョキ', 'パー'];
 
 ?>
@@ -49,4 +52,4 @@ $hand = ['グー', 'チョキ', 'パー'];
     <a href="/">もどる</a>
   </body>
 </html>
-<!-- 修正時刻: Fri Jan 14 08:11:16 2022 -->
+<!-- 修正時刻: Fri Jan 14 15:25:35 2022 -->
