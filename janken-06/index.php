@@ -2,7 +2,6 @@
 session_start();
 
 require_once('Player.php');
-require_once('util.php');
 require_once('ResultStrategy.php');
 require_once('RandomStrategy.php');
 
@@ -26,22 +25,27 @@ if (! isset($_SESSION['com2'])) {
 <html lang="ja">
   <head>
     <meta charset="utf-8"/>
-    <title>ジャンケン</title>
+    <title>じゃんけんゲーム</title>
   </head>
   <body>
     <h1>じゃんけんゲーム</h1>
-    <p>手を選んでください</p>
     <form action="game.php" method="post">
-      <input type="radio" name="hand" value="0" id="gu" />
-      <label for="gu">グー</label>
-      <input type="radio" name="hand" value="1" id="choki" />
-      <label for="choki">チョキ</label>
-      <input type="radio" name="hand" value="2" id="pa" />
+      <input type="radio" name="hand" id="gu" value="0"/>
+      <label for="gu">グー</label><br/>
+
+      <input type="radio" name="hand" id="choki" value="1"/>
+      <label for="choki">チョキ</label><br/>
+
+      <input type="radio" name="hand" id="pa" value="2"/>
       <label for="pa">パー</label><br/>
+
       <input type="submit" value="OK"/>
     </form>
     <p><a href="setting.php">設定</a></p>
+    <p><a href="end.php">やめる</a></p>
   </body>
 </html>
 
-<!-- 修正時刻: Sat Jan 15 16:06:01 2022 -->
+
+
+<!-- 修正時刻: Sat Jan 15 16:45:31 2022 -->

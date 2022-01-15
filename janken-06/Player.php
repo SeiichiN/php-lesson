@@ -1,4 +1,5 @@
 <?php
+
 class Player {
   private $name;
   private $hand;
@@ -9,13 +10,18 @@ class Player {
     $this->name = $name;
   }
 
-  public function setNextHand() {
-    $nextHand = $this->strategy->nextHand();
-    $this->setHand($nextHand);
+  public function getStrategy() {
+    return $this->strategy;
   }
 
   public function setStrategy($strategy) {
-    $this->strategy = $strategy;
+    $this->strategy = $strategy;    
+  }
+
+  // Strategyが提案した手を、次の手としてセットする
+  public function setNextHand() {
+    $nextHand = $this->strategy->nextHand();  // 0, 1, 2
+    $this->setHand($nextHand);  
   }
 
   public function getName() { return $this->name; }
@@ -24,8 +30,10 @@ class Player {
 
   public function setName($name) { $this->name = $name; }
   public function setHand($hand) { $this->hand = $hand; }
-  public function setResult($result) { $this->result = $result; }
+  public function setResult($result) {
+    $this->result = $result;
+  }
 }
 
 
-// 修正時刻: Sat Jan 15 15:14:05 2022
+// 修正時刻: Sat Jan 15 07:50:13 2022

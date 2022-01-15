@@ -5,15 +5,11 @@ require_once('Player.php');
 require_once('Judge.php');
 require_once('util.php');
 require_once('ResultStrategy.php');
-require_once('StrategyInterface.php');
 require_once('RandomStrategy.php');
 
 $user = unserialize($_SESSION['user']);
 $com = unserialize($_SESSION['com']);
 
-// if (isset($_POST['hand'])) {
-//   $userHand = (int) $_POST['hand'];
-// }
 $options = [
   'options' => [
     'default' => 3,
@@ -23,7 +19,6 @@ $options = [
 ];
 $userHand = filter_input(INPUT_POST, 'hand', FILTER_VALIDATE_INT, $options);
 
-
 $user->setHand($userHand);
 $com->setNextHand();
 
@@ -32,9 +27,7 @@ $_SESSION['user'] = serialize($user);
 $_SESSION['com'] = serialize($com);
 
 $hand = ['グー', 'チョキ', 'パー'];
-
 ?>
-
 <!doctype html>
 <html lang="ja">
   <head>
@@ -45,11 +38,15 @@ $hand = ['グー', 'チョキ', 'パー'];
     <h1>janken</h1>
     <?php // echo $userObj->getName(); ?>
     <p>
-      <?php echo h($user->getName()) ?>:<?php echo h($hand[$user->getHand()]); ?><br/>
-      <?php echo h($com->getName()) ?>:<?php echo h($hand[$com->getHand()]); ?>
+      <?php echo h($user->getName()) ?>:
+      <?php echo h($hand[$user->getHand()]); ?>
+    </p>
+    <p>
+      <?php echo h($com->getName()) ?>:
+      <?php echo h($hand[$com->getHand()]); ?>
     </p>
     <p><?php echo h($msg); ?></p>
     <a href="/">もどる</a>
   </body>
 </html>
-<!-- 修正時刻: Fri Jan 14 15:25:35 2022 -->
+<!-- 修正時刻: Sat Jan 15 14:24:37 2022 -->

@@ -4,19 +4,14 @@ session_start();
 require_once('Player.php');
 require_once('util.php');
 
-if (isset($_SESSION['user'])) {
-  $user = unserialize($_SESSION['user']);
-} else {
+if (! isset($_SESSION['user'])) {
   $user = new Player("あなた");
+  $_SESSION['user'] = serialize($user);
 }
-if (isset($_SESSION['com'])) {
-  $com = unserialize($_SESSION['com']);
-} else {
+if (! isset($_SESSION['com'])) {
   $com = new Player("わたし");
+  $_SESSION['com'] = serialize($com);
 }
-
-$_SESSION['user'] = serialize($user);
-$_SESSION['com'] = serialize($com);
 ?>
 <!doctype html>
 <html lang="ja">
@@ -26,7 +21,6 @@ $_SESSION['com'] = serialize($com);
   </head>
   <body>
     <h1>じゃんけんゲーム</h1>
-    <p><?php echo h($user->getName()) ?>の手を選んでください</p>
     <form action="game.php" method="post">
       <input type="radio" name="hand" value="0" id="gu" />
       <label for="gu">グー</label>
@@ -40,4 +34,4 @@ $_SESSION['com'] = serialize($com);
   </body>
 </html>
 
-<!-- 修正時刻: Mon Jan 10 07:34:24 2022 -->
+<!-- 修正時刻: Sat Jan 15 13:49:40 2022 -->

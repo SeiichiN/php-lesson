@@ -16,11 +16,13 @@ $com = unserialize($_SESSION['com']);
   <body>
     <h1>設定</h1>
     <form action="settingDone.php" method="post">
-      <?php echo h($user->getName()); ?> の名前:<input type="text" name="userName"/><br/>
-      <?php echo h($com->getName()); ?> の名前:<input type="text" name="comName"/><br/>
+      <?php echo h($user->getName()); ?> の名前:
+      <input type="text" name="userName"/><br/>
+      <?php echo h($com->getName()); ?> の名前:
+      <input type="text" name="comName"/><br/>
       <input type="submit" value="設定終了"/>
     </form>
   </body>
 </html>
 
-<!-- 修正時刻: Mon Jan 10 07:39:08 2022 -->
+<!-- 修正時刻: Sat Jan 15 14:22:58 2022 -->

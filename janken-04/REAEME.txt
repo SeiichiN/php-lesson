@@ -1,7 +1,29 @@
 変更したところ
 
-(1) コンピュータが次の手を戦略的に考えるようにした。
-    それを Strategyクラスの staticメソッド decide() として実装。
+コンピュータが次の手を戦略的に考えるようにした。
+
+(1) StrategyInterfaceの nextHand() をインターフェースとする。
+
+(2) StrategyInterface を実装するクラスとして、
+    ResultStrategyクラス と RandomStrategyクラスを考える。
+
+(3) Playerクラスに $strategyフィールドを追加し、それに
+    ResultStrategyクラスなどの StrategyInterface実装くらすの
+    インスタンスをセットできるようにする。
+
+(4) Playerクラスに setStrategy() メソッドをつくる。引数は
+    $strategy である。
+
+(5) ResultStrategyクラスの nextHand()メソッドは以下の内容とする。
+    「対戦相手が次に出す手は、今と同じ手ではない」というのを前提とする。
+    とすると、以下のことが考えられる。
+      負けの場合 -- 同じ手を次の手とする。
+      引分けの場合 -- 負けの手を次の手とする。(例: 今グー -> 次チョキ)
+
+(6) このことから、ResultStrategyクラスは、情報として $com インスタンスの
+    $result と $hand フィールドの情報が必要である。
+    しかし、StrategyInterfaceインターフェースの nextHand()メソッドは
+    引数を持たない仕様とする。(汎用性をもたせるため)
 
 
-;; 修正時刻: Mon Jan 10 09:48:32 2022
+;; 修正時刻: Sat Jan 15 15:01:39 2022

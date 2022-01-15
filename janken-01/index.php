@@ -10,7 +10,7 @@ $comName = 'わたし';
   </head>
   <body>
     <h1>じゃんけんゲーム</h1>
-    <p><?php echo $userName ?>の手を選んでください</p>
+    <p>手を選んでください</p>
     <form action="game.php" method="post">
       <input type="hidden" name="userName" value="<?= $userName ?>"/>
       <input type="hidden" name="comName" value="<?= $comName ?>"/>
@@ -25,4 +25,4 @@ $comName = 'わたし';
   </body>
 </html>
 
-<!-- 修正時刻: Sat Jan  8 16:09:46 2022 -->
+<!-- 修正時刻: Sat Jan 15 13:45:35 2022 -->

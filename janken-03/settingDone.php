@@ -6,15 +6,13 @@ require_once('Player.php');
 $user = unserialize($_SESSION['user']);
 $com = unserialize($_SESSION['com']);
 
-if ($_POST['userName']) {
-  $userName = $_POST['userName'];
-} else {
-  $userName = "あなた"; // $user->getName();
+$userName = filter_input(INPUT_POST, 'userName');
+if (empty($userName)) {
+  $userName = "あなた";
 }
-if ($_POST['comName']) {
-  $comName = $_POST['comName'];
-} else {
-  $comName = "わたし"; // $com->getName();
+$comName = filter_input(INPUT_POST, 'comName');
+if (empty($comName)) {
+  $comName = "わたし";
 }
 
 $user->setName($userName);
@@ -26,4 +24,4 @@ $_SESSION['com'] = serialize($com);
 header('Location: ' . "/");
 exit;
 
-// 修正時刻: Sat Jan  8 18:16:24 2022
+// 修正時刻: Sat Jan 15 13:53:20 2022

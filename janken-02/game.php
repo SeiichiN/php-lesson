@@ -3,20 +3,11 @@ require_once('Player.php');
 require_once('Judge.php');
 require_once('util.php');
 
-// if (isset($_POST['userName'])) {
-//   $userName = $_POST['userName'];
-// }
-// if (isset($_POST['comName'])) {
-//   $comName = $_POST['comName'];
-// }
 $userName = filter_input(INPUT_POST, 'userName');
 $comName = filter_input(INPUT_POST, 'comName');
 if (empty($userName)) { $userName = "あなた"; }
 if (empty($comName)) { $comName = "わたし"; }
 
-// if (isset($_POST['hand'])) {
-//   $userHand = (int) $_POST['hand'];
-// }
 $options = [
   'options' => [
     'default' => 3,
@@ -26,10 +17,6 @@ $options = [
 ];
 $userHand = filter_input(INPUT_POST, 'hand', FILTER_VALIDATE_INT, $options);
 $comHand = random_int(0, 2);
-
-/* echo 'userName:' . $userName . "<br>\n";
- * echo 'comName:' .  $comName . "<br>\n";
- * echo 'userHand:' . $userHand . "<br>\n";*/
 
 $user = new Player($userName);
 $com = new Player($comName);
@@ -61,5 +48,5 @@ $hand = ['グー', 'チョキ', 'パー'];
   </body>
 </html>
 
-<!-- 修正時刻: Mon Jan 10 14:45:28 2022 -->
+<!-- 修正時刻: Sat Jan 15 13:23:08 2022 -->
 

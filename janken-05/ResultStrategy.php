@@ -1,7 +1,6 @@
 <?php
 require_once('StrategyInterface.php');
 
-
 class ResultStrategy implements StrategyInterface {
   private $com;
 
@@ -9,16 +8,15 @@ class ResultStrategy implements StrategyInterface {
     $this->com = $com;
   }
   
-  public function decide() {
-    // echo 'com:', $com->getResult() , '<br>';
+  public function nextHand() {
+    $result = $this->com->getResult();
+    $hand = $this->com->getHand();
 
-    if ($this->com->getResult() === "lose") {
-      $newHand = $this->com->getHand();
-      // echo 'newHand:' , $newHand, '<br>';
+    if ($result === "lose") {
+      $newHand = $hand;
     }
-    else if ($this->com->getResult() === "draw"){
-      $newHand = ($this->com->getHand() + 1) % 3;
-      // echo 'newHand:' , $newHand, '<br>';
+    else if ($result === "draw"){
+      $newHand = ($hand + 1) % 3;
     }
     else {
       $newHand = random_int(0, 2);
@@ -27,4 +25,4 @@ class ResultStrategy implements StrategyInterface {
   }
 }
 
-// 修正時刻: Mon Jan 10 11:56:58 2022
+// 修正時刻: Sat Jan 15 15:25:52 2022

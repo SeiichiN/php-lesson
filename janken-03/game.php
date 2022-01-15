@@ -8,9 +8,6 @@ require_once('util.php');
 $user = unserialize($_SESSION['user']);
 $com = unserialize($_SESSION['com']);
 
-// if (isset($_POST['hand'])) {
-//   $userHand = (int) $_POST['hand'];
-// }
 $options = [
   'options' => [
     'default' => 3,
@@ -19,12 +16,12 @@ $options = [
   ]
 ];
 $userHand = filter_input(INPUT_POST, 'hand', FILTER_VALIDATE_INT, $options);
-
 $comHand = random_int(0, 2);
 
 $user->setHand($userHand);
 $com->setHand($comHand);
 $msg = Judge::execute($user, $com);
+
 $hand = ['グー', 'チョキ', 'パー'];
 
 ?>
@@ -46,4 +43,4 @@ $hand = ['グー', 'チョキ', 'パー'];
     <a href="/">もどる</a>
   </body>
 </html>
-<!-- 修正時刻: Mon Jan 10 07:39:26 2022 -->
+<!-- 修正時刻: Sat Jan 15 13:54:31 2022 -->
