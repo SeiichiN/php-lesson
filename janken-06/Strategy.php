@@ -4,8 +4,8 @@ require_once('StrategyInterface.php');
 abstract class Strategy implements StrategyInterface {
   private $name;
 
-  public function __construct($name) {
-    $this->name = $name;
+  public function __construct() {
+    $this->name = get_class($this);
   }
   
   public abstract function nextHand();
@@ -15,4 +15,4 @@ abstract class Strategy implements StrategyInterface {
   }
 }
 
-// 修正時刻: Sat Jan 15 06:37:14 2022
+// 修正時刻: Wed Jan 19 06:44:41 2022

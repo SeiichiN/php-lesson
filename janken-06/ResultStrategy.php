@@ -5,7 +5,7 @@ class ResultStrategy extends Strategy {
   private $com;
  
   public function __construct($com) {
-    parent::__construct(get_class());
+    parent::__construct();
     $this->com = $com;
   }
 
@@ -31,4 +31,4 @@ class ResultStrategy extends Strategy {
   }
 }
 
-// 修正時刻: Sat Jan 15 16:41:23 2022
+// 修正時刻: Wed Jan 19 06:46:14 2022
